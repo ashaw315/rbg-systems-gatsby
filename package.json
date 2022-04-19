@@ -1,0 +1,28 @@
+{
+  "name": "rgb-systems-gatsby",
+  "version": "1.0.0",
+  "private": true,
+  "description": "rgb-systems-gatsby",
+  "author": "Adam",
+  "keywords": [
+    "gatsby"
+  ],
+  "scripts": {
+    "develop": "gatsby develop",
+    "start": "gatsby develop",
+    "build": "gatsby build",
+    "serve": "gatsby serve",
+    "clean": "gatsby clean"
+  },
+  "dependencies": {
+    "gatsby": "^4.12.1",
+    "gatsby-plugin-image": "^2.12.1",
+    "gatsby-plugin-sharp": "^4.12.1",
+    "gatsby-source-filesystem": "^4.12.1",
+    "gatsby-source-strapi": "^2.0.0",
+    "gatsby-transformer-remark": "^5.12.1",
+    "gatsby-transformer-sharp": "^4.12.1",
+    "react": "^17.0.1",
+    "react-dom": "^17.0.1"
+  }
+}
