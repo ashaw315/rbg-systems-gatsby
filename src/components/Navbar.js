@@ -25,9 +25,10 @@ const Navbar = () => {
     <div>
         <img 
         src={data.strapiHeader.Logo.url}
+        alt={data.strapiHeader.Logo.url}
         style={{ width: 'auto', height: 300 }}/>
         {data.strapiHeader.Navigation?.map(nav => (
-            <div>
+            <div key={nav.Url}>
               <Link to={`/${nav.Url}`}>{nav.Title}</Link>
             </div>
         ))}
