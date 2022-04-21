@@ -1,13 +1,10 @@
 import * as React from "react"
 import { graphql, Link } from "gatsby"
-import { MDXRenderer } from "gatsby-plugin-mdx"
-import ReactMarkdown from 'react-markdown'
+import TextBlock from "../components/TextBlock"
+import ImageBlock from "../components/ImageBlock"
+
 
 const articleIndex = ({ data, pageContext }) => {
-
-    
-    console.log(data)
-
     const { currentPage, numPages } = pageContext
     const isFirst = currentPage === 1
     const isLast = currentPage === numPages
@@ -22,8 +19,8 @@ const articleIndex = ({ data, pageContext }) => {
                 <div>
                   {edge.node.Content.map((item, index) => (
                     <div key={index}>
-                      <ReactMarkdown children={item.internal.content}/>
-                      {/* <p>{item.internal.content}</p> */}
+                      {item.text ? <TextBlock item={item}/> : null }
+                      {item.rgb_media ? <ImageBlock item={item}/> : null }
                     </div>
                   ))}
                 </div>
@@ -42,40 +39,48 @@ const articleIndex = ({ data, pageContext }) => {
 
 export const query = graphql`
   query articles ($limit: Int, $skip: Int){
-  allStrapiArticle(limit: $limit, skip: $skip) {
-    edges {
-      node {
-        id
-        Content {
-          ... on STRAPI__COMPONENT_WRITING_IMAGE_BLOCK {
-            id
-            internal {
-              content
+    allStrapiArticle(limit: $limit, skip: $skip) {
+      edges {
+        node {
+          id
+          Content {
+            ... on STRAPI__COMPONENT_WRITING_IMAGE_BLOCK {
+              id
+              rgb_media {
+                localFile {
+                  childImageSharp {
+                    gatsbyImageData
+                  }
+                }
+              }
+            }
+            ... on STRAPI__COMPONENT_WRITING_TEXT_BLOCK {
+              id
+              text {
+                data {
+                  childMarkdownRemark {
+                    html
+                  }
+                }
+              }
             }
           }
-          ... on STRAPI__COMPONENT_WRITING_TEXT_BLOCK {
-            id
-            internal {
-              content
-            }
-          }
+          Date
+          Title
         }
-        Date
-        Title
-      }
-      next {
-        Date
-        Title
-        id
-      }
-      previous {
-        Title
-        Date
-        id
+        next {
+          Date
+          Title
+          id
+        }
+        previous {
+          Title
+          Date
+          id
+        }
       }
     }
   }
-}
 
 `
 
