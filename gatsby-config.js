@@ -5,7 +5,22 @@ require('dotenv').config({
 const strapiConfig = {
   apiURL: process.env.STRAPI_API_URL,
   accessToken: process.env.STRAPI_TOKEN,
-  collectionTypes: ['article', 'header'],
+  collectionTypes: [
+    {
+      singularName: 'article',
+      queryParams: {
+        // Populate media and relations
+        // Make sure to not specify the fields key so the api always returns the updatedAt
+        populate: {
+          Content: {
+            populate: {
+              rgb_media: "*"
+            },
+          },
+        },
+      },
+    },
+    'header'],
   // singleTypes: ['home page'],
   // contentTypes: ['article'],
 };
