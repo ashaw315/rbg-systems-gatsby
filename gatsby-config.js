@@ -20,7 +20,7 @@ const strapiConfig = {
         },
       },
     },
-    'header', 'project'],
+    'header', 'project'], 
   // singleTypes: ['home page'],
   // contentTypes: ['article'],
 };
