@@ -1,7 +1,6 @@
 import * as React from "react"
 import { graphql, Link } from "gatsby"
-import TextBlock from "../components/TextBlock"
-import ImageBlock from "../components/ImageBlock"
+import Content from "../components/Content"
 
 
 const articleIndex = ({ data, pageContext }) => {
@@ -16,14 +15,7 @@ const articleIndex = ({ data, pageContext }) => {
             {data.allStrapiArticle.edges.map((edge, index) => (
               <div className='article' key={index}>
                 <h1>{edge.node.Title}</h1>
-                <div>
-                  {edge.node.Content.map((item, index) => (
-                    <div key={index}>
-                      {item.text ? <TextBlock item={item}/> : null }
-                      {item.rgb_media ? <ImageBlock item={item}/> : null }
-                    </div>
-                  ))}
-                </div>
+                <Content blocks={edge.node.Content}/>
               </div>
             ))}
         <p>Articles go here!</p>
@@ -46,6 +38,7 @@ export const query = graphql`
           Content {
             ... on STRAPI__COMPONENT_WRITING_IMAGE_BLOCK {
               id
+              style
               rgb_media {
                 localFile {
                   childImageSharp {

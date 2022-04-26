@@ -1,18 +1,16 @@
 import React from "react";
 import { GatsbyImage, getImage } from "gatsby-plugin-image"
 
-const ImageBlock = ({item}) => {
-    console.log(item)
-    //map item.rgb_media in future
+const ImageBlock = ({block}) => {
 
-    const imgData = getImage(item.rgb_media[0].localFile.childImageSharp.gatsbyImageData)
+    console.log(block)
 
     return (
-        <div>
-            <GatsbyImage
-                image={imgData}
-                alt="">
-            </GatsbyImage>
+        <div className={`media-block style-${block.style?.toLowerCase()}`}>
+            {block.rgb_media.map((media, index) => {
+                const imgData = getImage(media.localFile.childImageSharp.gatsbyImageData)
+                return <GatsbyImage key={index} image={imgData} alt=""></GatsbyImage>
+            })}
         </div>
     )
 }

@@ -1,8 +1,7 @@
 import React from "react";
 
-const TextBlock = ({item}) => {
-    console.log(item)
-    const text = item.text.data.childMarkdownRemark.html
+const TextBlock = ({block}) => {
+    const text = block.text.data.childMarkdownRemark.html
     return (
         <div dangerouslySetInnerHTML={{__html: text}}>
             

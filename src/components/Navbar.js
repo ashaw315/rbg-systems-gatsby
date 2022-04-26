@@ -22,16 +22,17 @@ const Navbar = () => {
     console.log(data.strapiHeader.Navigation)
 
   return (
-    <div>
-        <img 
+    <div id='nav'>
+      <div id='backdrop'></div>
+        <img  
         src={data.strapiHeader.Logo.url}
         alt={data.strapiHeader.Logo.url}
         style={{ width: 'auto', height: 300 }}/>
-        {data.strapiHeader.Navigation?.map(nav => (
-            <div key={nav.Url}>
-              <Link to={`/${nav.Url}`}>{nav.Title}</Link>
-            </div>
-        ))}
+        <div id='nav-links'>
+            {data.strapiHeader.Navigation?.map(nav => (
+            <Link className='nav-link' key={nav.Url} to={`/${nav.Url}`}>{nav.Title}</Link>
+            ))}
+        </div>
     </div>
   )
 }

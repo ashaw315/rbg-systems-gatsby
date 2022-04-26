@@ -19,7 +19,35 @@ const strapiConfig = {
           },
         },
       },
-    },'header', 'project'],
+    },
+    {
+      singularName: 'project',
+        queryParams: {
+          // Populate media and relations
+          // Make sure to not specify the fields key so the api always returns the updatedAt
+          populate: {
+            Content: {
+              populate: {
+                rgb_media: "*"
+            },
+          },
+        },
+      },
+    },
+    {
+      singularName: 'page',
+        queryParams: {
+          // Populate media and relations
+          // Make sure to not specify the fields key so the api always returns the updatedAt
+          populate: {
+            Content: {
+              populate: {
+                rgb_media: "*"
+            },
+          },
+        },
+      },
+    }, 'header'],
   // singleTypes: ['home page'],
   // contentTypes: ['article'],
 };
@@ -39,5 +67,7 @@ module.exports = {
     "gatsby-transformer-sharp",
     "gatsby-transformer-remark",
     "gatsby-plugin-mdx",
+    "gatsby-plugin-layout",
+    "gatsby-plugin-sass",
   ],
 }

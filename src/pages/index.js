@@ -11,9 +11,6 @@ const IndexPage = () => {
     <main >
       <title>Home Page</title>
       <div>
-        <Navbar />
-      </div>
-      <div>
         Hello! This is the Home Page!
       </div>
     </main>

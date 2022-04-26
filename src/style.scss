@@ -1,0 +1,38 @@
+@keyframes changeColor {
+    0%{
+        background-color: red;
+    }
+    25%{
+        background-color: green;
+    }
+    50%{
+        background-color: blue;
+    }
+    75%{
+        background-color: yellow;
+    }
+    100%{
+        background-color: red;
+    }
+}
+
+#backdrop {
+    animation: changeColor 8s linear infinite;
+    position: fixed;
+    top: 0;
+    right: 0;
+    left: 0;
+    bottom: 0;
+    background-color: aqua;
+    z-index: -1;
+}
+
+#nav{
+    border: solid black 1px;
+    .nav-link {
+        color: red;
+        &:first-child {
+            color: green;
+        }
+    }
+}
