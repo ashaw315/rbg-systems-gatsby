@@ -3,7 +3,7 @@ import { graphql, Link } from "gatsby";
 
 const ProjectIndex = ({ data }) => {
     
-    console.log(data)
+    console.log('all projects', data)
 
     return (
         <div>

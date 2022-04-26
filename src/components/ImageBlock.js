@@ -3,7 +3,7 @@ import { GatsbyImage, getImage } from "gatsby-plugin-image"
 
 const ImageBlock = ({block}) => {
 
-    console.log(block)
+    console.log('media', block)
 
     return (
         <div className={`media-block style-${block.style?.toLowerCase()}`}>

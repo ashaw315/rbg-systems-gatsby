@@ -44,6 +44,9 @@ export const query = graphql`
                   childImageSharp {
                     gatsbyImageData
                   }
+                  childrenImageSharp {
+                    gatsbyImageData
+                  }
                 }
               }
             }

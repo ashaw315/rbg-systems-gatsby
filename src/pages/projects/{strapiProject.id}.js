@@ -4,7 +4,7 @@ import Content from "../../components/Content";
 
 const ProjectPage = ({ data }) => {
     
-    console.log(data)
+    console.log("projects", data)
     const proj = data.strapiProject
 
     return (
@@ -20,38 +20,36 @@ const ProjectPage = ({ data }) => {
 
 
 export const query = graphql`
-  query singleProject {
-    strapiProject {
-      id
-      Client
-      Content {
-        ... on STRAPI__COMPONENT_WRITING_IMAGE_BLOCK {
-          id
-          rgb_media {
-            localFile {
-              childImageSharp {
-                gatsbyImageData
-              }
-            }
-          }
-          style
-        }
-        ... on STRAPI__COMPONENT_WRITING_TEXT_BLOCK {
-          id
-          text {
-            data {
-              childMarkdownRemark {
-                html
-              }
+query singleProject($id: String) {
+  strapiProject(id: {eq: $id}) {
+    Client
+    Content {
+      ... on STRAPI__COMPONENT_WRITING_IMAGE_BLOCK {
+        id
+        rgb_media {
+          localFile {
+            childImageSharp {
+              gatsbyImageData
             }
           }
         }
       }
-      Date
-      Title
-      Url
+      ... on STRAPI__COMPONENT_WRITING_TEXT_BLOCK {
+        id
+        text {
+          data {
+            childMarkdownRemark {
+              html
+            }
+          }
+        }
+      }
     }
+    Date
+    Title
+    Url
   }
+}
 `
 
 
