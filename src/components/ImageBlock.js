@@ -9,7 +9,7 @@ const ImageBlock = ({block}) => {
         <div className={`media-block style-${block.style?.toLowerCase()}`}>
             {block.rgb_media.map((media, index) => {
                 const imgData = getImage(media.localFile.childImageSharp.gatsbyImageData)
-                return <GatsbyImage key={index} image={imgData} alt=""></GatsbyImage>
+                return <GatsbyImage className="media" key={index} image={imgData} alt=""></GatsbyImage>
             })}
         </div>
     )

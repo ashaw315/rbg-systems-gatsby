@@ -36,3 +36,20 @@
         }
     }
 }
+
+.projects {
+    display: block;
+}
+
+.main-images {
+    display: flex;
+    width: 70%;
+    .media-block {
+        display: flex;
+        .media{
+            margin: 10px;
+        }
+    }
+    
+    
+}

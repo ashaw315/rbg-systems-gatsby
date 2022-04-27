@@ -18,9 +18,6 @@ const Navbar = () => {
   }
 `)
 
-    console.log(data)
-    console.log(data.strapiHeader.Navigation)
-
   return (
     <div id='nav'>
       <div id='backdrop'></div>

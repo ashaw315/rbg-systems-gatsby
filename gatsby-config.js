@@ -31,6 +31,11 @@ const strapiConfig = {
                 rgb_media: "*"
             },
           },
+            images: {
+              populate: {
+                rgb_media: "*"
+            },
+          },
         },
       },
     },
