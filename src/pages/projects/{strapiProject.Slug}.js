@@ -16,7 +16,9 @@ const ProjectPage = ({ data }) => {
             <div className="main-images">
               {proj.images ? <ImageBlock block={proj.images}/> : null }
             </div>
-            <Content blocks={proj.Content}/>
+            <div className="project-content">
+              <Content blocks={proj.Content}/>
+            </div>
         </div>
     )
 }

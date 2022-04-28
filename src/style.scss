@@ -1,3 +1,15 @@
+@import url('https://fonts.googleapis.com/css2?family=Radio+Canada:wght@300&family=Titillium+Web:wght@900&display=swap');
+
+@font-face {
+    font-family: 'MathJaxFont';
+    src:  url('/MathJax_Math-Regular.woff') format('woff');
+  }
+
+  @font-face {
+    font-family: 'OracleSans';
+    src:  url('/OracleSans_W_Rg.woff') format('woff');
+  }  
+
 @keyframes changeColor {
     0%{
         background-color: red;
@@ -58,3 +70,10 @@ html, body {
     opacity: 0.3;
 }
 
+.article {
+    font-family: 'Titillium Web', sans-serif;
+}
+
+.project-content {
+    font-family: OracleSans;
+}
