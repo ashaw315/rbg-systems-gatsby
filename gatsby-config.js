@@ -74,5 +74,6 @@ module.exports = {
     "gatsby-plugin-mdx",
     "gatsby-plugin-layout",
     "gatsby-plugin-sass",
+    `gatsby-plugin-react-helmet`,
   ],
 }

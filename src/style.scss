@@ -16,15 +16,8 @@
     }
 }
 
-#backdrop {
-    // animation: changeColor 8s linear infinite;
-    position: fixed;
-    top: 0;
-    right: 0;
-    left: 0;
-    bottom: 0;
-    background-color: aqua;
-    z-index: -1;
+html, body {
+    margin: 0;
 }
 
 #nav{
@@ -50,6 +43,18 @@
             margin: 10px;
         }
     }
-    
-    
 }
+
+#myCanvas {
+    z-index: -1;
+    border: solid black 1px;
+    width: 100vw;
+    height: 100vh;
+    position: fixed;
+    top: 0;
+    right: 0;
+    left: 0;
+    bottom: 0;
+    opacity: 0.3;
+}
+
