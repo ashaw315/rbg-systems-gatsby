@@ -10,6 +10,20 @@
     src:  url('/OracleSans_W_Rg.woff') format('woff');
   }  
 
+  @font-face {
+    font-family: 'ArialRounded';
+    src:  url('/arial-rounded-mt-regular.woff') format('woff');
+  } 
+
+  @font-face {
+    font-family: 'ArialRoundedBold';
+    src:  url('/arial-rounded-mt-bold.woff') format('woff');
+  } 
+
+  body {
+    font-family: 'MathJaxFont';
+  }
+
 @keyframes changeColor {
     0%{
         background-color: red;
@@ -32,27 +46,60 @@ html, body {
     margin: 0;
 }
 
-#nav{
-    border: solid black 1px;
+#site {
+    padding: 1rem;
+}
+
+.nav{
+    .logo {
+        height: 75px;
+        width: auto;
+    }
+    .nav-links {
+        display: flex;
+        gap: 1rem;
+        position: absolute;
+        right: 1rem;
+        top: 1rem;
+    }
     .nav-link {
         color: red;
-        &:first-child {
-            color: green;
-        }
+        text-decoration: none;
     }
 }
 
+
 .projects {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1rem;
+}
+.project {
     display: block;
 }
 
+@media (max-width: 768px) {
+    .projects {
+        display: grid;
+        grid-template-columns: 1fr;
+        gap: 1rem;
+    }
+}
+
+
 .main-images {
-    display: flex;
-    width: 70%;
+    // border: 1px solid black;
+    width: 80%;
+    overflow: hidden;
+    .marquee {
+        margin: 0;
+        // display: flex;
+    }
     .media-block {
-        display: flex;
         .media{
             margin: 10px;
+            height: 30vh;
+            width: auto;
         }
     }
 }
@@ -71,9 +118,28 @@ html, body {
 }
 
 .article {
-    font-family: 'Titillium Web', sans-serif;
+    font-family: ArialRoundedBold;
 }
 
 .project-content {
-    font-family: OracleSans;
+    font-family: ArialRounded;
+}
+
+.cursor {
+    // background-image: url('/arrowup.png');
+    // background-size: cover;
+    // width: 150px;
+    // height: 130px;
+    // border: 2px solid rgb(0, 0, 0);
+    position: fixed;
+    transition: transform .1s;
+    .arrow {
+        width: 150px;
+        height: auto;
+        position: fixed;
+        // transform: translate(-50%, 15%);
+        z-index: -23339;
+    }
+    // border-radius: 50%;
+    // border: 10px solid black;
 }

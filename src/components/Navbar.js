@@ -19,13 +19,14 @@ const Navbar = () => {
 `)
 
   return (
-    <div id='nav'>
-      <div id='backdrop'></div>
-        <img  
-        src={data.strapiHeader.Logo.url}
-        alt={data.strapiHeader.Logo.url}
-        style={{ width: 'auto', height: 300 }}/>
-        <div id='nav-links'>
+    <div className="nav">
+        <Link to={'/'}>
+          <img className="logo" 
+          src={data.strapiHeader.Logo.url}
+          alt={data.strapiHeader.Logo.url}
+          />
+        </Link>
+        <div className="nav-links">
             {data.strapiHeader.Navigation?.map(nav => (
             <Link className='nav-link' key={nav.Url} to={`/${nav.Url}`}>{nav.Title}</Link>
             ))}
