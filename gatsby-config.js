@@ -67,6 +67,14 @@ module.exports = {
       resolve: `gatsby-source-strapi`,
       options: strapiConfig,
     },
+    {
+      resolve: `gatsby-source-filesystem`,
+      options: {
+        name: `paperscripts`,
+        path: `${__dirname}/src/components/paperscripts/`,
+        ignore: [`**/\.*`], // ignore files starting with a dot
+      },
+    },
     "gatsby-plugin-image",
     "gatsby-plugin-sharp",
     "gatsby-transformer-sharp",

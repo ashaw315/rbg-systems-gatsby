@@ -8,7 +8,7 @@
   @font-face {
     font-family: 'OracleSans';
     src:  url('/OracleSans_W_Rg.woff') format('woff');
-  }  
+  }
 
 @keyframes changeColor {
     0%{
@@ -29,17 +29,66 @@
 }
 
 html, body {
-    margin: 0;
+  margin: 0;
+}
+
+#desk {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  width: 50vw;
+  height: 33.9vw;
+  transform: translate(-50%,-50%);
+  box-shadow: black 0px 0px 10px;
+  perspective: 130vw;
+  #desk-image {
+    width: 100%;
+    position: absolute;
+
+  }
+  #paper-loader {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 104%;
+    height: 90%;
+
+    transform: translate(-5.9%, -14.7%) scale(0.4) rotateY(22deg) rotateX(-31deg) rotateZ(-12.6deg);
+    // background: linear-gradient(-45deg, black, white);
+    background: white;
+    canvas {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+    }
+  }
+}
+
+#site {
+  padding: 1rem;
 }
 
 #nav{
-    border: solid black 1px;
-    .nav-link {
-        color: red;
-        &:first-child {
-            color: green;
-        }
+  position: relative;
+  #logo {
+    height: 25px;
+  }
+  #nav-links {
+    display: flex;
+
+    flex-direction: column;
+    // position: absolute;
+    top: 0;
+    left: 0;
+  }
+  .nav-link {
+    color: red;
+    &:first-child {
+        color: green;
     }
+  }
 }
 
 .projects {
@@ -59,7 +108,6 @@ html, body {
 
 #myCanvas {
     z-index: -1;
-    border: solid black 1px;
     width: 100vw;
     height: 100vh;
     position: fixed;
@@ -67,7 +115,8 @@ html, body {
     right: 0;
     left: 0;
     bottom: 0;
-    opacity: 0.3;
+    //temporary!!!!!
+    display: none;
 }
 
 .article {

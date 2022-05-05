@@ -1,0 +1,57 @@
+function prettyRaCo()
+        {
+            var colorWheel =  Math.floor(Math.random()*6);
+
+            var color = "rgb(";
+            var randomNumber =  Math.floor(Math.random()*256);
+            if(colorWheel ==0)
+            color= color+ "0,255,"+randomNumber+")";
+             if(colorWheel ==1)
+            color= color+ "0,"+randomNumber+",255)";
+             if(colorWheel ==2)
+            color= color+ "255, 0,"+randomNumber+")";
+             if(colorWheel ==3)
+            color= color+ "255,"+randomNumber+",0)";
+             if(colorWheel ==4)
+            color= color+ randomNumber+",255,0)";
+             if(colorWheel ==5)
+            color= color+ randomNumber+",0,255)";
+            return color;
+        }
+
+const num = (range) => Math.floor(Math.random() * range)
+
+var paths = [];
+var amt = 20;
+var placePoints = false;
+var start = new Point();
+var startV = Point.random().normalize();
+startV = startV-(startV/2)
+function onMouseDown(event){
+	colors = [prettyRaCo(),prettyRaCo(),prettyRaCo()]
+	startV = Point.random().normalize();
+	startV = startV-(startV/2)
+	if(placePoints){
+		placePoints = false;
+		return
+	}
+	paths = [];
+	for(var i=0;i<amt;i++){
+		paths[i] = (new Path({
+			'strokeColor': colors[Math.floor(Math.random()*3)],
+			'strokeWidth':Math.random()*3+5,
+			'segments': [event.point+startV*10*i]
+			}))
+	}
+	placePoints = true;
+	start = event.point
+}
+
+
+function onMouseMove(event){
+	if(placePoints)
+		paths.forEach(e =>{
+			e.add(e.segments[e.segments.length-1].point+event.delta)
+			e.smooth()
+		});
+}
