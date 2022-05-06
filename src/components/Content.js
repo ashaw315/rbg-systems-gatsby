@@ -3,12 +3,12 @@ import ImageBlock from "./ImageBlock";
 import TextBlock from "./TextBlock";
 
 const Content = ({ blocks }) => {
-    
+
 
     return (
-        <div>
+        <div className="content-blocks">
             {blocks.map((block, index) => (
-                <div key={index}>
+                <div className="content-block" key={index}>
                     {block.text ? <TextBlock block={block}/> : null }
                     {block.rgb_media ? <ImageBlock block={block}/> : null }
                 </div>

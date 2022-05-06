@@ -5,14 +5,14 @@ function ls(){
 		[[view.bounds.width*.38,view.bounds.height*.6],
 		[view.bounds.width*.38,view.bounds.height+200]]
 	})
-	left.strokeWidth = 20;
+	left.strokeWidth = view.bounds.width/100;
 	left.strokeColor = prettyRaCo();
 	left.rotate(15)
 	right = new Path.Line({segments:
 		[[view.bounds.width*.62,view.bounds.height*.6],
 		[view.bounds.width*.62,view.bounds.height+200]]
 	});
-	right.strokeWidth = 20;
+	right.strokeWidth = view.bounds.width/100;
 	right.strokeColor = prettyRaCo();
 	right.rotate(-15)
 	return [left,right]
@@ -24,14 +24,14 @@ oval = new Path.Line({segments:[
 	[view.bounds.width*.6,view.bounds.height*.605]
 	]});
 oval.strokeColor = prettyRaCo();
-oval.strokeWidth = 20;
+oval.strokeWidth = view.bounds.width/100;
 oval.strokeCap = 'round';
 
 var topRung = new Path.Line({segments:[
 legs[0].getPointAt(100),legs[1].getPointAt(100)]
 });
 topRung.strokeColor = prettyRaCo();
-topRung.strokeWidth = 20;
+topRung.strokeWidth = view.bounds.width/100;
 topRung.sendToBack();
 
 
@@ -39,14 +39,14 @@ var bottomRung = new Path.Line({segments:[
 legs[0].getPointAt(200),legs[1].getPointAt(200)]
 });
 bottomRung.strokeColor = prettyRaCo();
-bottomRung.strokeWidth = 20;
+bottomRung.strokeWidth = view.bounds.width/100;
 bottomRung.sendToBack();
 
 var circle = new Path.Circle({
     center: [view.bounds.width*.5,view.bounds.height*.27],
     radius: view.bounds.height*.23,
     strokeColor: prettyRaCo(),
-    strokeWidth:15
+    strokeWidth:view.bounds.width/100
 });
 var ridge = new Path.Circle({
     center: [view.bounds.width*.5,view.bounds.height*.27],
@@ -91,7 +91,7 @@ var pole = new Path.Line({segments:[
 	nut.bounds.center]
 });
 pole.strokeColor = prettyRaCo();
-pole.strokeWidth = 27;
+pole.strokeWidth = view.bounds.width/100;
 pole.sendToBack();
 
 

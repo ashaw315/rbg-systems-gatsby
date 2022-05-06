@@ -150,6 +150,7 @@ const PaperLoader = () => {
       paper.tool.onMouseDown({point: new paper.Point(num(w),num(h))});
       clearInterval(drawInterval.current)
       let pt = new paper.Point(num(w),num(h))
+      console.log(paper)
     }
     useEffect(() => {
       window.num = (range) => Math.floor(Math.random()*range)

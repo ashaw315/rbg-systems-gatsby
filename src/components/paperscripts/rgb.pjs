@@ -23,7 +23,7 @@ function draw(){
 
   var rows = 10;
   var columns = 8;
-  var size = Math.min(window.innerWidth,window.innerHeight);
+  var size = Math.min(view.bounds.width,view.bounds.height);
   var tapeSize = size/Math.max(rows,columns);
   var c = new Group();//[];
   var r = new Group();//[];

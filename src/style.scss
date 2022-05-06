@@ -24,13 +24,19 @@
   body {
     font-family: 'ArialRounded';
   }
-  h1,h2,h3,h4,h5,h6 {
+  h2,h3,h4,h5,h6 {
     font-weight: bold;
     padding: 0;
     margin: 0;
   }
+  h3 {
+    text-transform: uppercase;
+    letter-spacing: 4px;
+    font-weight: normal;
+    font-size: 1rem;
+  }
   p {
-    margin: 0;
+    // margin: 0;
   }
   a {
     cursor: none;
@@ -120,6 +126,13 @@ html, body {
     }
   }
 
+.content-blocks {
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+  max-width: 800px;
+  margin: 0 auto;
+}
 
 .projects {
     display: grid;

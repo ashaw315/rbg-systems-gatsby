@@ -3,7 +3,7 @@ import { graphql } from "gatsby";
 import Content from "../components/Content";
 
 const Page = ({ data }) => {
-    
+
 console.log(data)
 
     return (
@@ -15,8 +15,8 @@ console.log(data)
 }
 
 export const query = graphql`
-  {
-    strapiPage {
+query singlePage($id: String) {
+  strapiPage(id: {eq: $id}) {
       Slug
       Title
       Content {
@@ -44,7 +44,7 @@ export const query = graphql`
       }
       createdAt
     }
-  }
+}
 `
 
 
