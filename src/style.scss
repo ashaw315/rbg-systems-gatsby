@@ -16,12 +16,29 @@
   }
 
   @font-face {
-    font-family: 'ArialRoundedBold';
+    font-family: 'ArialRounded';
+    font-weight: bold;
     src:  url('/arial-rounded-mt-bold.woff') format('woff');
   }
 
   body {
-    font-family: 'MathJaxFont';
+    font-family: 'ArialRounded';
+  }
+  h1,h2,h3,h4,h5,h6 {
+    font-weight: bold;
+    padding: 0;
+    margin: 0;
+  }
+  p {
+    margin: 0;
+  }
+  a {
+    cursor: none;
+    color: black;
+    text-decoration: none;
+    &:hover {
+      text-decoration: underline;
+    }
   }
 
 @keyframes changeColor {
@@ -53,7 +70,7 @@ html, body {
   width: 50vw;
   height: 33.9vw;
   transform: translate(-50%,-50%);
-  box-shadow: black 0px 0px 10px;
+  box-shadow: black 0px 0px 25px;
   perspective: 130vw;
   #desk-image {
     width: 100%;
@@ -81,11 +98,9 @@ html, body {
 }
 
 #site {
-  padding: 1rem;
-}
-
-#site {
-    padding: 1rem;
+    margin: 1rem;
+    cursor: none!important;
+    min-height: calc(100vh - 2rem);
 }
 
 .nav{
@@ -102,19 +117,24 @@ html, body {
     }
     .nav-link {
         color: red;
-        text-decoration: none;
     }
   }
-}
 
 
 .projects {
     display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 1rem;
+    grid-template-columns: 50% 50%;
+    gap: 4rem 1rem;
+    padding-right: 1rem;
 }
 .project {
     display: block;
+    position: relative;
+    .project-image-thumb-container {
+      height: 100%;
+      flex: 1 0 auto;
+      display: inline-block;
+    }
 }
 
 @media (max-width: 768px) {
@@ -127,20 +147,23 @@ html, body {
 
 
 .main-images {
-    // border: 1px solid black;
-    width: 80%;
-    overflow: hidden;
-    .marquee {
-        margin: 0;
-        // display: flex;
-    }
-    .media-block {
-        .media{
-            margin: 10px;
-            height: 30vh;
-            width: auto;
-        }
-    }
+  height: 300px;
+  overflow: hidden;
+  box-shadow: black 0 0 3px;
+  margin-top: 1rem;
+  position: relative;
+  .marquee {
+    height: 100%;
+      margin: 0;
+      gap: 1rem;
+      // display: flex;
+  }
+  .media-block {
+      .media{
+          margin: 10px;
+          width: auto;
+      }
+  }
 }
 
 #myCanvas {
@@ -156,29 +179,45 @@ html, body {
     display: none;
 }
 
-.article {
-    font-family: ArialRoundedBold;
-}
-
 .project-content {
     font-family: ArialRounded;
 }
 
 .cursor {
-    // background-image: url('/arrowup.png');
-    // background-size: cover;
-    // width: 150px;
-    // height: 130px;
-    // border: 2px solid rgb(0, 0, 0);
-    position: fixed;
-    transition: transform .1s;
-    .arrow {
-        width: 150px;
-        height: auto;
-        position: fixed;
-        // transform: translate(-50%, 15%);
-        z-index: -23339;
-    }
-    // border-radius: 50%;
-    // border: 10px solid black;
+  cursor: none!important;
+  pointer-events: none;
+  z-index: 9000;
+  width: 20px;
+  height: 20px;
+  // width: 150px;
+  // height: 130px;
+  // border: 2px solid rgb(0, 0, 0);
+  position: fixed;
+  top: 0;
+  left: 0;
+  filter: drop-shadow(rgba(0,0,0,.3) 0px 0px 2px);
+  .rotator {
+    // transition: transform .2s;
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-image: url('/mouse.png');
+    background-image: url('/mouse.svg');
+    background-size: contain;
+    background-position: top left;
+    transform-origin: 5% 5%;
+    background-repeat: no-repeat;
+  }
+  // transition: transform .01s;
+  .arrow {
+      width: 150px;
+      height: auto;
+      position: fixed;
+      // transform: translate(-50%, 15%);
+      z-index: -23339;
+  }
+  // border-radius: 50%;
+  // border: 10px solid black;
 }
