@@ -52,7 +52,7 @@ const strapiConfig = {
           },
         },
       },
-    }, 'header'],
+    }, 'header',"tags"],
   // singleTypes: ['home page'],
   // contentTypes: ['article'],
 };

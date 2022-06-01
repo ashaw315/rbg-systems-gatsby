@@ -98,7 +98,6 @@ pole.sendToBack();
 var v = 0;
 var a = -.05;
 function onMouseDown(){
-	console.log("fuck")
  v += 3
 }
 

@@ -2,27 +2,21 @@ import React, { useState, useEffect, useRef, useCallback } from "react";
 import Navbar from "../components/Navbar";
 import PaperAnimation from "../components/PaperAnimation";
 import Mouse from "../components/Mouse";
+import CanvasPattern from "../components/CanvasPattern"
+const num = (range) => {
+  return Math.floor(Math.random()*range)
+}
 
 const Layout = ({ children }) => {
 
-
-
-// useEffect (() => {
-// if(typeof window !== 'undefined'){
-//     window.addEventListener('mousemove', (e) => {
-//         cursorRef.current.style.left = coordRef.current.x + 'px'
-//         cursorRef.current.style.top = coordRef.current.y + 'px'
-//         cursorRef.current.style.transform =  `rotate(${angleRef.current}rad)`
-//     })
-//   }
-// }, [])
-
   return (
+    <CanvasPattern size={30} space={10}>
       <div id='site'>
           <Navbar />
           <Mouse />
           {children}
       </div>
+    </CanvasPattern>
   )
 }
 

@@ -1,7 +1,6 @@
 var draw = false;
 
 function onMouseDown(e){
-  console.log("coaster click")
 	draw = !draw;
 	if(draw){
 		line = new Path(getOptions());

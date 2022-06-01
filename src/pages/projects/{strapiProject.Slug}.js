@@ -2,14 +2,10 @@ import React from "react";
 import { graphql } from "gatsby";
 import Content from "../../components/Content";
 import ImageBlock from "../../components/ImageBlock";
-
 const ProjectPage = ({ data }) => {
-    
-    console.log("projects", data)
     const proj = data.strapiProject
-
     return (
-        <div>
+        <div className="projec">
             <h1>{proj.Title}</h1>
             <h4>{proj.Client}</h4>
             <h4>{proj.Date}</h4>

@@ -12,7 +12,6 @@ function clearAll(){
 }
 var a = [1,2,3,4,5,6];
 Array.prototype.pluckRandom = function(){
-  console.log(this)
   var choice = num(this.length);
   return this.splice(choice,1)
 }
@@ -86,5 +85,4 @@ function generateStairs(){
 generateStairs();
 function onMouseDown(){
   generateStairs();
-  console.log("ok")
 }

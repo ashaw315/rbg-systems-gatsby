@@ -65,7 +65,6 @@ function onMouseMove(e){
 }
 var clicked = false;
 function onMouseDown(e){
-  console.log("fingertrap click")
   clicked = !clicked;
   if(!clicked){
     lines.children = [];

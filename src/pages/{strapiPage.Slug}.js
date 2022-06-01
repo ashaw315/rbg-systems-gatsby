@@ -2,17 +2,7 @@ import React from "react";
 import { graphql } from "gatsby";
 import Content from "../components/Content";
 
-const Page = ({ data }) => {
-
-console.log(data)
-
-    return (
-        <div>
-           <h1>{data.strapiPage.Title}</h1>
-           <Content blocks={data.strapiPage.Content}/>
-        </div>
-    )
-}
+const Page = ({ data }) => <Content blocks={data.strapiPage.Content}/>
 
 export const query = graphql`
 query singlePage($id: String) {

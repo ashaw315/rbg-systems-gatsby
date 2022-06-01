@@ -79,7 +79,6 @@ function onMouseDown(){
 
 if(window.location.href.indexOf("forpierre")>-1)
 	setInterval(function(){
-		console.log("f")
 		drawScene();
 	group.children = [];
 	average = [0,0]

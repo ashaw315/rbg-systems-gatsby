@@ -15,7 +15,6 @@ var count = 0;
 		oval.size = [(event.point.x-oval.position.x)*2,(event.point.y-oval.position.y)*2]
 		temp = oval.toPath()
 		new paper.Path({segments:temp.segments,closed:true,dashArray: dash,strokeColor: prettyRaCo(),strokeWidth:sw})
-		console.log(project.activeLayer.children.length)
 			if(project.activeLayer.children.length > 3)
 				{
 				a = project.activeLayer.children.pop()

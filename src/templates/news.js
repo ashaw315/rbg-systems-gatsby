@@ -18,7 +18,6 @@ const articleIndex = ({ data, pageContext }) => {
                 <Content blocks={edge.node.Content}/>
               </div>
             ))}
-        <p>Articles go here!</p>
         {!isFirst && (
           <Link to={`/news/${prevPage}`}> Previous Page</Link>
         )}
@@ -77,7 +76,6 @@ export const query = graphql`
       }
     }
   }
-
 `
 
 export default articleIndex;
