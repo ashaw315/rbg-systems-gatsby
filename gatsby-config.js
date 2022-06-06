@@ -71,7 +71,7 @@ module.exports = {
       resolve: `gatsby-source-filesystem`,
       options: {
         name: `paperscripts`,
-        path: `${__dirname}/src/components/paperscripts/`,
+        path: `${__dirname}/src/components/PaperPerformer/Paperscripts/`,
         ignore: [`**/\.*`], // ignore files starting with a dot
       },
     },

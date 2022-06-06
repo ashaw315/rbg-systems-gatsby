@@ -35,7 +35,7 @@ const CanvasPattern = ({ children,size=12,space=3 }) => {
     }
   }, [])
   return <div id="canvas-pattern" style={canvasPattern}>
-    <canvas ref={canvasRef} width={size} height={size} id="backdrop"></canvas>
+    <canvas style={{display: "none"}} ref={canvasRef} width={size} height={size} id="backdrop"></canvas>
     { children }
     </div>
 }

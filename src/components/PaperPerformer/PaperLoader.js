@@ -6,7 +6,7 @@
 //be able to stop 1 paper canvas thingy(or more!!!!!!???)
 import React, { useState, useEffect, useRef } from "react";
 import {useStaticQuery, graphql} from "gatsby"
-import { prettyRaCo, colorWheel } from "./Utils.js"
+import { prettyRaCo, colorWheel } from "./PaperUtils.js"
 import points from "./MousePerformances/performance-1.json"
 // import * as paper from "paper";
 import { Helmet } from "react-helmet";
@@ -83,7 +83,7 @@ tool.onMouseMove = onMouseMove;`
 
 const getPaperscripts = (names) => {
   let scripts = names.map(name => {
-    let scriptString = require(`!!raw-loader!./paperscripts/${name}`);
+    let scriptString = require(`!!raw-loader!./Paperscripts/${name}`);
     return scriptString.default+toolAdderString;
   })
   return scripts;
@@ -120,22 +120,20 @@ const PaperLoader = () => {
     const paperJsRef = useRef(null);
     const drawInterval = useRef(null);
     const toolRef = useRef(null);
-    // const [scripts,setScripts] = useState([]);
     const [canvasId, setCanvasId] = useState("pl-"+Math.random().toString().slice(15))
     const paperRef = useRef(null);
     const handleScriptInject = ({ scriptTags }) => {
-        if (scriptTags) {
-            const scriptTag = scriptTags[0];
-            scriptTag.onload = () => {
-              if(window.paper){
-                paperRef.current = window.paper;
-                performer = new Performer(points, paperRef.current);
-                performer.start()
-                changeScript(num(scripts.length));
-              }
-            }
-
+      if (scriptTags) {
+        const scriptTag = scriptTags[0];
+        scriptTag.onload = () => {
+          if(window.paper){
+            paperRef.current = window.paper;
+            performer = new Performer(points, paperRef.current);
+            performer.start()
+            changeScript(num(scripts.length));
+          }
         }
+      }
     }
     const changeScript = (index) => {
       let paper = paperRef.current
@@ -158,19 +156,11 @@ const PaperLoader = () => {
       window.colorWheel = colorWheel
       let paper;
         if(typeof window !== 'undefined') {
-            let loaderBounds = loaderRef.current.parentElement.getBoundingClientRect()
-            console.log(loaderBounds)
-            setWidth(loaderBounds.width)
-            setHeight(loaderBounds.height)
-            canvasRef.current = document.getElementById(canvasId);
-            //paperscript
-            //
-
-            // }
-          // if(!drawInterval.current)
-          // setInterval(()=> {
-          //   changeScript();
-          // },6000)
+          let loaderBounds = loaderRef.current.parentElement.getBoundingClientRect()
+          console.log(loaderBounds)
+          setWidth(loaderBounds.width)
+          setHeight(loaderBounds.height)
+          canvasRef.current = document.getElementById(canvasId);
         }
     }, [paperRef])
 

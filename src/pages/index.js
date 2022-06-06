@@ -1,7 +1,7 @@
 import React, {useEffect,useState} from "react"
 import Navbar from "../components/Navbar"
 import { graphql } from "gatsby"
-import PaperLoader from "../components/PaperLoader";
+import PaperPerformer from "../components/PaperPerformer";
 import News from "../components/RecentNews";
 import img from "../images/rgb-systems-3d-desk-3.png"
 import butthead from "../images/beavis.png"
@@ -18,7 +18,7 @@ const IndexPage = () => {
     <main>
       <div id="desk" className={`pic-${pic}`}>
         <img id="desk-image" src={pic === 0 ? butthead : img}></img>
-          <PaperLoader />
+          <PaperPerformer />
       </div>
       <News/>
     </main>
