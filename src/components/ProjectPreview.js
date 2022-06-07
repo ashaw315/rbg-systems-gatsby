@@ -7,6 +7,7 @@ const ProjectPreview = ({node,scroll}) => {
   const sideRef = useRef();
   const block = node.images;
   return (
+    <div>
     <Link to={`/projects/${node.Slug}`}  className={"project" + (scroll ? " on" : "")}>
       {false && <h3>{node.Title} {node.Client && ` for ${node.Client}`}</h3>}
       <p class="project-title">{node.Url}</p>
@@ -15,9 +16,9 @@ const ProjectPreview = ({node,scroll}) => {
         className="marquee"
         speed={50}
         loop={0}
-        play={scroll}
         pauseOnHover={false}
         gradientWidth={0}
+        play={false}
         >
           {
             block && block.rgb_media.map((media, index) => {
@@ -35,6 +36,23 @@ const ProjectPreview = ({node,scroll}) => {
         </Marquee>
       </div>
     </Link>
+
+    
+        <div className="project-tags">
+              {node.tags ? (
+                
+                  node.tags.map((tag, index) => {
+                    
+                    return (
+                      <Link to={`/projects/tag/${tag.tagName.toLowerCase()}`} >
+                        <p key={index} style={{color: tag.hexValue }}>{tag.tagName}</p>
+                      </Link>
+                    )
+                  })
+                
+              ) : (<p>hello</p>) }
+        </div>
+    </div>
   )
 }
 

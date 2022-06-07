@@ -246,9 +246,9 @@ html, body {
 .project {
     display: block;
     position: relative;
-    .project-title {
-      margin-bottom: 0rem;
-    }
+    // .project-tags {
+    //   height: 100%;
+    // }
     .project-image-thumb-container {
       height: 100%;
       flex: 1 0 auto;
@@ -341,3 +341,4 @@ html, body {
   // border-radius: 50%;
   // border: 10px solid black;
 }
+
