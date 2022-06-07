@@ -9,7 +9,7 @@ const ProjectPreview = ({node,scroll}) => {
   return (
     <Link to={`/projects/${node.Slug}`}  className={"project" + (scroll ? " on" : "")}>
       {false && <h3>{node.Title} {node.Client && ` for ${node.Client}`}</h3>}
-      <p>{node.Url}</p>
+      <p class="project-title">{node.Url}</p>
       <div className="main-images">
         <Marquee
         className="marquee"

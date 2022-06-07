@@ -23,6 +23,10 @@
 
   body {
     font-family: 'ArialRounded';
+    font-size: 28px;
+  }
+  h1 {
+    color: red;
   }
   h2,h3,h4,h5,h6 {
     font-weight: bold;
@@ -40,7 +44,11 @@
   }
   a {
     cursor: none;
-    color: black;
+    color: red;
+    transition: text-shadow .3s;
+    &:hover {
+      text-shadow: blue 1px 1px .05em;
+    }
     text-decoration: none;
     &:hover {
       text-decoration: underline;
@@ -124,6 +132,27 @@ html, body {
     }
 }
 
+@keyframes spinBG {
+  0% {
+    background: linear-gradient(0deg, red, green,blue);
+  }
+  100% {
+    background: linear-gradient(360deg, red, green,blue);
+  }
+}
+
+#welcome {
+  display: inline-block;
+  white-space: nowrap;
+  font-size: calc(100vw / 7);
+  // animation: spinBG 3s linear infinite;
+  background: linear-gradient(333deg, red, green,blue);
+  background-clip: text;
+  -webkit-background-clip: text;
+  color: transparent;
+  // margin-right: -50px;
+}
+
 .nav{
   display: flex;
   justify-content: space-between;
@@ -151,8 +180,17 @@ html, body {
     }
     .nav-link {
         color: red;
+        &:hover {
+          color:blue;
+          text-decoration-color: green;
+        }
     }
   }
+
+.recent-news {
+  background: rgb(255,255,255,.6);
+  box-shadow: 0 0 110px 60px rgb(255,255,255,.6);
+}
 
 .content-blocks {
   display: flex;
@@ -208,6 +246,9 @@ html, body {
 .project {
     display: block;
     position: relative;
+    .project-title {
+      margin-bottom: 0rem;
+    }
     .project-image-thumb-container {
       height: 100%;
       flex: 1 0 auto;

@@ -1,25 +1,23 @@
 import React, {useEffect,useState} from "react"
 import Navbar from "../components/Navbar"
 import { graphql } from "gatsby"
-import PaperPerformer from "../components/PaperPerformer";
 import News from "../components/RecentNews";
-import img from "../images/rgb-systems-3d-desk-3.png"
-import butthead from "../images/beavis.png"
+import Marquee from "react-fast-marquee";
 
 const IndexPage = () => {
   const [pic,setPic] = useState(1)
-  // console.log(data)
-  useEffect(()=>{
-    if(typeof window !== "undefined"){
-      // setPic(Math.floor(Math.random()*2));
-    }
-  },[])
+
   return (
     <main>
-      <div id="desk" className={`pic-${pic}`}>
-        <img id="desk-image" src={pic === 0 ? butthead : img}></img>
-          <PaperPerformer />
-      </div>
+    <Marquee
+    className="marquee"
+    speed={10}
+    loop={0}
+    pauseOnHover={false}
+    gradientWidth={0}
+    >
+      <h1 id="welcome">RGB Systems/</h1>
+    </Marquee>
       <News/>
     </main>
   )

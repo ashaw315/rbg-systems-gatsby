@@ -52,7 +52,6 @@ const data = useStaticQuery(graphql`
   }
   `);
   return <div className="recent-news content-blocks">
-  <h1>Recent News</h1>
     {data.articles.edges.map((e,i) => <Article key={i} node={e.node} />)}
   </div>
 };

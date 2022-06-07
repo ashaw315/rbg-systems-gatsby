@@ -10,7 +10,7 @@ const num = (range) => {
 const Layout = ({ children }) => {
 
   return (
-    <CanvasPattern size={30} space={10}>
+    <CanvasPattern size={50} space={5} speed={1000}>
       <div id='site'>
           <Navbar />
           <Mouse />
