@@ -33,6 +33,10 @@ query allProjects {
   allStrapiProject(sort: {fields: Date, order: DESC}) {
     edges {
       node {
+        tags {
+          tagName
+          hexValue
+        }
         id
         Slug
         Client

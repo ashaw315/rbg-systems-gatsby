@@ -36,6 +36,7 @@ const strapiConfig = {
                 rgb_media: "*"
             },
           },
+          tags: "*",
         },
       },
     },
