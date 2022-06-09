@@ -53,7 +53,15 @@ const strapiConfig = {
           },
         },
       },
-    }, 'header',"tags"],
+    },
+    {
+      singularName: 'tag',
+        queryParams: {
+          populate: {
+            projects: "*"
+        },
+      },
+    }, 'header'],
   // singleTypes: ['home page'],
   // contentTypes: ['article'],
 };

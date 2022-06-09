@@ -9,7 +9,11 @@ const TagPage = ({data}) => {
 
     return (
         <div className="projects-tags">
-            {data.allStrapiProject.edges.map((edge, index) => <ProjectPreview node={edge.node} key={index}/>)}
+            <div>
+              {data.strapiTag?.projects.map((project, index) => <ProjectPreview node={project} key={index}/>)}
+            </div>
+          
+            {/* {data.allStrapiTag.edges.map((edge, index) => <ProjectPreview node={edge.node} key={index}/>)} */}
       </div>
     )
 }
@@ -17,16 +21,25 @@ const TagPage = ({data}) => {
 export default TagPage;
 
 export const query = graphql`
-    query tagFilter($tag: String) {
-      allStrapiProject(filter: {tags: {elemMatch: {tagName: {eq: $tag}}}}) {
-        edges {
-          node {
-            tags {
-              tagName
+query filterTag2($id: String) {
+  strapiTag(id: {eq: $id}) {
+    projects {
+      Title
+      Client
+      Date
+      Slug
+      images {
+        rgb_media {
+          localFile {
+            childImageSharp {
+              gatsbyImageData
             }
-            Title
           }
         }
       }
     }
+    tagName
+    hexValue
+  }
+}
   `

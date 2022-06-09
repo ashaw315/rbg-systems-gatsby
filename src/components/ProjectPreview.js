@@ -10,7 +10,7 @@ const ProjectPreview = ({node,scroll}) => {
     <div>
     <Link to={`/projects/${node.Slug}`}  className={"project" + (scroll ? " on" : "")}>
       {false && <h3>{node.Title} {node.Client && ` for ${node.Client}`}</h3>}
-      <p class="project-title">{node.Url}</p>
+      <p className="project-title">{node.Url}</p>
       <div className="main-images">
         <Marquee
         className="marquee"
@@ -50,7 +50,7 @@ const ProjectPreview = ({node,scroll}) => {
                     )
                   })
                 
-              ) : (<p>hello</p>) }
+              ) : null }
         </div>
     </div>
   )
