@@ -7,9 +7,21 @@ const TagPage = ({data}) => {
 
     console.log("filter data", data)
 
+    function capitalize(str) {
+      return str.charAt(0).toUpperCase() + str.slice(1);
+    }
+
     return (
         <div className="projects-tags">
-            {data.allStrapiProject.edges.map((edge, index) => <ProjectPreview node={edge.node} key={index}/>)}
+            <div className="project-tags-info">
+                <h1>{capitalize(data.strapiTag.tagName)}</h1>
+                <h3>{data.strapiTag.description}</h3>
+            </div>
+            <div>
+              {data.strapiTag?.projects.map((project, index) => <ProjectPreview node={project} key={index}/>)}
+            </div>
+          
+            {/* {data.allStrapiTag.edges.map((edge, index) => <ProjectPreview node={edge.node} key={index}/>)} */}
       </div>
     )
 }
@@ -17,16 +29,26 @@ const TagPage = ({data}) => {
 export default TagPage;
 
 export const query = graphql`
-    query tagFilter($tag: String) {
-      allStrapiProject(filter: {tags: {elemMatch: {tagName: {eq: $tag}}}}) {
-        edges {
-          node {
-            tags {
-              tagName
+query filterTag2($id: String) {
+  strapiTag(id: {eq: $id}) {
+    projects {
+      Title
+      Client
+      Date
+      Slug
+      images {
+        rgb_media {
+          localFile {
+            childImageSharp {
+              gatsbyImageData
             }
-            Title
           }
         }
       }
     }
+    tagName
+    hexValue
+    description
+  }
+}
   `
