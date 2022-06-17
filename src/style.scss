@@ -243,18 +243,42 @@ html, body {
     gap: 4rem 4rem;
     padding-right: 1rem;
 }
-.project {
+.project-preview {
+  .project {
     display: block;
     position: relative;
-    // .project-tags {
-    //   height: 100%;
-    // }
     .project-image-thumb-container {
       height: 100%;
       flex: 1 0 auto;
       display: inline-block;
     }
+  }
+  &:hover {
+    .project-tags {
+      opacity: 1;
+    }
+  }
+  .project-tags {
+    transition: opacity .3s;
+    opacity: 0;
+    font-size: .75rem;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1rem;
+    .project-tag {
+      display: inline-block;
+      padding: 0.25rem 1rem 0.1rem;
+      margin: 1rem 0;
+      border-radius: 1rem;
+      border-style: solid;
+      border-width: 2px;
+      color: white;
+      text-transform: uppercase;
+      line-height: 1rem;
+    }
+  }
 }
+
 
 @media (max-width: 768px) {
     .projects {
@@ -341,4 +365,3 @@ html, body {
   // border-radius: 50%;
   // border: 10px solid black;
 }
-

@@ -7,10 +7,10 @@ const ProjectPreview = ({node,scroll}) => {
   const sideRef = useRef();
   const block = node.images;
   return (
-    <div>
+    <div className="project-preview">
     <Link to={`/projects/${node.Slug}`}  className={"project" + (scroll ? " on" : "")}>
       {false && <h3>{node.Title} {node.Client && ` for ${node.Client}`}</h3>}
-      <p class="project-title">{node.Url}</p>
+      <p className="project-title">{node.Url}</p>
       <div className="main-images">
         <Marquee
         className="marquee"
@@ -37,20 +37,23 @@ const ProjectPreview = ({node,scroll}) => {
       </div>
     </Link>
 
-    
+
         <div className="project-tags">
               {node.tags ? (
-                
                   node.tags.map((tag, index) => {
-                    
                     return (
-                      <Link to={`/projects/tag/${tag.tagName.toLowerCase()}`} >
-                        <p key={index} style={{color: tag.hexValue }}>{tag.tagName}</p>
+                      <Link key={index}
+                      style={{
+
+                        background: tag.hexValue,
+                      }}
+                      className="project-tag"
+                      to={`/projects/tag/${tag.tagName.toLowerCase()}`} >
+                        {tag.tagName}
                       </Link>
                     )
                   })
-                
-              ) : (<p>hello</p>) }
+              ) : (null) }
         </div>
     </div>
   )
