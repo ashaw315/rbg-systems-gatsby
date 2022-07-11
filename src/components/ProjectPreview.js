@@ -6,6 +6,7 @@ import Marquee from "react-fast-marquee";
 const ProjectPreview = ({node,scroll}) => {
   const sideRef = useRef();
   const block = node.images;
+  console.log(node)
   return (
     <div className="project-preview">
     <Link to={`/projects/${node.Slug}`}  className={"project" + (scroll ? " on" : "")}>
@@ -44,7 +45,6 @@ const ProjectPreview = ({node,scroll}) => {
                     return (
                       <Link key={index}
                       style={{
-
                         background: tag.hexValue,
                       }}
                       className="project-tag"

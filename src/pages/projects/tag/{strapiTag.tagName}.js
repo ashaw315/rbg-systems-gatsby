@@ -15,12 +15,12 @@ const TagPage = ({data}) => {
         <div className="projects-tags">
             <div className="project-tags-info">
                 <h1>{capitalize(data.strapiTag.tagName)}</h1>
-                <h3>{data.strapiTag.description}</h3>
+                <h2>{data.strapiTag.description}</h2>
             </div>
-            <div>
+            <div className="projects">
               {data.strapiTag?.projects.map((project, index) => <ProjectPreview node={project} key={index}/>)}
             </div>
-          
+
             {/* {data.allStrapiTag.edges.map((edge, index) => <ProjectPreview node={edge.node} key={index}/>)} */}
       </div>
     )
@@ -35,6 +35,7 @@ query filterTag2($id: String) {
       Title
       Client
       Date
+      Url
       Slug
       images {
         rgb_media {

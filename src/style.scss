@@ -243,6 +243,7 @@ html, body {
     gap: 4rem 4rem;
     padding-right: 1rem;
 }
+
 .project-preview {
   .project {
     display: block;
@@ -276,6 +277,12 @@ html, body {
       text-transform: uppercase;
       line-height: 1rem;
     }
+  }
+}
+
+.projects-tags {
+  .project-tags-info {
+    margin-bottom: 2rem;
   }
 }
 
