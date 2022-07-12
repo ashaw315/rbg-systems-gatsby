@@ -28,7 +28,8 @@ const strapiConfig = {
           populate: {
             Content: {
               populate: {
-                rgb_media: "*"
+                rgb_media: "*",
+                video: "*"
             },
           },
             images: {
