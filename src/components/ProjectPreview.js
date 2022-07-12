@@ -15,7 +15,7 @@ const ProjectPreview = ({node,scroll}) => {
       <div className="main-images">
         <Marquee
         className="marquee"
-        speed={50}
+        speed={75}
         loop={0}
         pauseOnHover={false}
         gradientWidth={0}
