@@ -27,6 +27,7 @@
   }
   h1 {
     color: red;
+    margin: 0;
   }
   h2,h3,h4,h5,h6 {
     font-weight: bold;
@@ -43,7 +44,7 @@
     // margin: 0;
   }
   a {
-    cursor: none;
+    // cursor: none;
     color: red;
     transition: text-shadow .3s;
     &:hover {
@@ -123,7 +124,7 @@ html, body {
 
 #site {
     padding: 1rem;
-    cursor: none!important;
+    // cursor: none!important;
     min-height: calc(100vh - 2rem);
     #backdrop {
       position: fixed;
@@ -200,17 +201,6 @@ html, body {
         height: 50px;
         width: auto;
     }
-    .site-title {
-      position: absolute;
-      // -webkit-text-stroke: black 1px;
-      left: 50%;
-      color: transparent;
-      transform: translateX(-50%);
-      background-clip: text;
-      -webkit-background-clip: text;
-      font-size: 3rem;
-      font-weight: bold;
-    }
     .nav-links {
         display: flex;
         gap: 1rem;
@@ -237,7 +227,7 @@ html, body {
   flex-direction: column;
   gap: 2rem;
   max-width: 800px;
-  margin: 0 auto;
+  // margin: 0 auto;
   .content-block {
     &.video-block {
       video {
@@ -412,7 +402,7 @@ html, body {
 }
 
 .cursor {
-  cursor: none!important;
+  // cursor: none!important;
   pointer-events: none;
   z-index: 9000;
   width: 20px;

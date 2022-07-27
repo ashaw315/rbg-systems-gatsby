@@ -26,7 +26,6 @@ const Navbar = () => {
           alt={data.strapiHeader.Logo.url}
           />
         </Link>
-        <Link className="site-title" to="/">RGB Systems</Link>
         <div className="nav-links">
             {data.strapiHeader.Navigation?.map(nav => (
             <Link className='nav-link' key={nav.Url} to={`/${nav.Url}`}>{nav.Title}</Link>

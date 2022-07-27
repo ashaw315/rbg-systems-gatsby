@@ -3,6 +3,7 @@ import Navbar from "../components/Navbar"
 import { graphql, GatsbyImage, getImage } from "gatsby"
 import News from "../components/RecentNews";
 import Marquee from "react-fast-marquee";
+import Projects from "../components/Projects";
 
 const spanify = (text) => {
   let out = [];
@@ -26,6 +27,7 @@ const IndexPage = () => {
       <h1 id="welcome">{spanify("RGB Systems/")}</h1>
     </Marquee>
     <img id="home-image" src="/IMG_3496.jpg"></img>
+      <Projects/>
       <News/>
     </main>
   )

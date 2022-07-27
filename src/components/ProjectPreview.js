@@ -10,8 +10,8 @@ const ProjectPreview = ({node,scroll}) => {
   return (
     <div className="project-preview">
     <Link to={`/projects/${node.Slug}`}  className={"project" + (scroll ? " on" : "")}>
-      {false && <h3>{node.Title} {node.Client && ` for ${node.Client}`}</h3>}
-      <p className="project-title">{node.Url}</p>
+      <p className="project-title">{node.Url} <span style={{color:"blue"}}>{node.Date.slice(0,4)}</span></p>
+
       <div className="main-images">
         <Marquee
         className="marquee"
