@@ -24,21 +24,25 @@
   body {
     font-family: 'ArialRounded';
     font-size: 28px;
+    max-width: 100vw;
+    overflow-x: hidden;
   }
   h1 {
     color: red;
     margin: 0;
+    text-align: center;
+    margin-bottom: 1em;
   }
   h2,h3,h4,h5,h6 {
-    font-weight: bold;
+    font-weight: normal;
     padding: 0;
     margin: 0;
   }
   h3 {
     text-transform: uppercase;
     letter-spacing: 4px;
-    font-weight: normal;
-    font-size: 1rem;
+    font-weight: bold;
+    font-size: 1.5rem;
   }
   p {
     // margin: 0;
@@ -76,6 +80,8 @@
 
 html, body {
   margin: 0;
+  max-width: 100vw;
+  overflow-x: hidden;
 }
 
 #desk {
@@ -88,6 +94,7 @@ html, body {
   box-shadow: black 0px 0px 25px;
   perspective: 130vw;
   margin: 4rem auto;
+  margin-bottom: 8vw;
   #desk-image {
     width: 100%;
     position: absolute;
@@ -123,14 +130,22 @@ html, body {
 }
 
 #site {
-    padding: 1rem;
-    // cursor: none!important;
-    min-height: calc(100vh - 2rem);
-    #backdrop {
-      position: fixed;
-      top: 0;
-      left: 0;
+  #site-page {
+    padding: 2rem;
+    main {
+      display: flex;
+      flex-direction: column;
+      gap: 6rem;
     }
+  }
+  padding: 1rem;
+  // cursor: none!important;
+  min-height: calc(100vh - 2rem);
+  #backdrop {
+    position: fixed;
+    top: 0;
+    left: 0;
+  }
 }
 
 @keyframes spinBG {
@@ -154,11 +169,23 @@ html, body {
   }
 }
 
-#welcome {
+@keyframes jump {
+  0%,100% {
+    transform: translateY(0rem);
+  }
+  25% {
+    transform: translateY(-.25rem);
+  }
+  75% {
+    transform: translateY(.25rem);
+  }
+}
+
+.welcome {
   margin: .5em 0;
   display: inline-block;
   white-space: nowrap;
-  font-size: calc(100vw / 7);
+
   // animation: spinBG 3s linear infinite;
   // animation: bgcolor 3s linear infinite;
   span {
@@ -166,18 +193,22 @@ html, body {
     background-clip: text;
     -webkit-background-clip: text;
     color: transparent;
-    -webkit-text-stroke: black 2px;
+    display: inline-block;
+    // -webkit-text-stroke: black 2px;
+    // animation: jump 3s linear infinite;
     &:nth-child(3n + 1){
+      // animation: jump 12s linear infinite 1s;
       background: linear-gradient(240deg,red,green,blue);
       -webkit-background-clip: text;
       color: transparent;
-      -webkit-text-stroke: black 2px;
+      // -webkit-text-stroke: black 2px;
     }
     &:nth-child(3n + 2){
+      // animation: jump 12s linear infinite 2s;
       background: linear-gradient(120deg,red,green,blue);
       -webkit-background-clip: text;
       color: transparent;
-      -webkit-text-stroke: black 2px;
+      // -webkit-text-stroke: black 2px;
     }
   }
   // margin-right: -50px;
@@ -197,48 +228,106 @@ html, body {
 .nav{
   display: flex;
   justify-content: space-between;
-    .logo {
-        height: 50px;
-        width: auto;
+  align-items: center;
+  // gap: 3rem;
+  position: sticky;
+  top:1rem;
+  z-index: 100;
+  .space-char {
+    width: .5rem;
+  }
+  >   .marquee {
+    position: relative;
+    -webkit-mask-image: linear-gradient(90deg, rgba(255,255,255,0) 0%,rgba(255,255,255,0) 5%, rgba(0,0,0,1) 15%,rgba(0,0,0,1) 50%,rgba(0,0,0,1) 90%,rgba(255,255,255,0) 95%, rgba(255,255,255,0) 100%);
+    &:before {
+      content: "";
+      position: absolute;
+      top: 0;
+      left: 0;
+      z-index: 100;
+      width: 100%;
+      height: 100%;
+      // background: blue;
+      -webkit-mask-image: linear-gradient(90deg, rgba(255,255,255,1) 0%,rgba(255,255,255,1) 10%, rgba(0,0,0,0) 50%,rgba(255,255,255,1) 90%, rgba(255,255,255,1) 100%);
+    //   -webkit-mask-image: -webkit-gradient(linear, left top, left bottom,
+    // from(rgba(0,0,0,1)), to(rgba(0,0,0,0)));
     }
-    .nav-links {
-        display: flex;
-        gap: 1rem;
-        // position: absolute;
-        right: 1rem;
-        top: 1rem;
+  }
+  .title-marquee {
+    flex: 0 1 auto;
+    min-width: auto;
+    padding: 0 1rem;
+    .welcome {
+      padding: 0 1rem;
+      font-size: 2rem;
+      display: block;
+      // white-space: normal;
+      margin: 0;
+      // display: inline-block;
     }
-    .nav-link {
-        color: red;
-        &:hover {
-          color:blue;
-          text-decoration-color: green;
-        }
+  }
+  .logo {
+      height: 50px;
+      width: auto;
+  }
+  .nav-links {
+      display: flex;
+      gap: 1rem;
+      // position: absolute;
+      right: 1rem;
+      top: 1rem;
+  }
+  .nav-link {
+      color: red;
+      &:hover {
+        color:blue;
+        text-decoration-color: green;
+      }
     }
   }
 
 .recent-news {
   background: rgb(255,255,255,.6);
   box-shadow: 0 0 110px 60px rgb(255,255,255,.6);
+  max-width: 1200px;
+  margin: 0 auto;
+  .content-blocks .image-block {
+    max-width: 50%;
+    margin: 0 auto;
+  }
 }
 
 .content-blocks {
   display: flex;
   flex-direction: column;
   gap: 2rem;
-  max-width: 800px;
-  // margin: 0 auto;
+  align-items: start;
   .content-block {
+    max-width: 1200px;
+    margin: 0 auto;
     &.video-block {
       video {
         max-width: 100%;
       }
     }
-    &.text-block {
-
+    .text-block {
+      display: flex;
+      flex-direction: column;
+      gap: 1rem;
+    }
+    &.html {
+      max-width: none;
+      margin: none;
+      .youtube {
+        width: calc(100vw - 2rem);
+        height: calc((1080 / 1920) * (100vw - 2rem));
+      }
     }
     &.image-block {
-
+    }
+    .caption {
+      font-size: 1.25rem;
+      margin-top: 1rem;
     }
   }
   ul {
@@ -283,15 +372,27 @@ html, body {
 .projects {
     display: grid;
     grid-template-columns: 50% 50%;
-    gap: 4rem 4rem;
+    gap: 1rem;
     padding-right: 1rem;
 }
 
 .project-preview {
+  border: solid black 1px;
+  background: white;
+  padding: 1rem;
   .project {
     display: block;
     position: relative;
     .project-image-thumb-container {
+      box-shadow: rgb(158, 128, 128) 5px 5px 5px;
+      &:nth-child(3n + 1) {
+        box-shadow: rgb(128, 158, 128) 5px 5px 5px;
+      }
+      &:nth-child(3n + 2) {
+        box-shadow: rgb(128, 128, 158) 5px 5px 5px;
+      }
+      margin-right: 1rem;
+      margin-bottom: 1rem;
       height: 40vh;
       flex: 1 0 auto;
       display: inline-block;
@@ -395,6 +496,13 @@ html, body {
     bottom: 0;
     //temporary!!!!!
     display: none;
+}
+
+.project {
+  .project-header {
+    margin: 2rem 0;
+    text-align: center;
+  }
 }
 
 .project-content {

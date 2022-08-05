@@ -12,13 +12,14 @@ const num = (range) => {
 const Layout = ({ children }) => {
 
   return (
-    // <CanvasPattern size={75} space={8} speed={1000}>
+    <CanvasPattern size={75} space={8} speed={1000}>
       <div id='site'>
-          <Navbar />
-
+        <Navbar />
+        <div id="site-page">
           {children}
+        </div>
       </div>
-    // </CanvasPattern>
+    </CanvasPattern>
   )
 }
 

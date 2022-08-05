@@ -15,21 +15,23 @@ function indexInParent(node) {
     return -1;
 }
 
-const ProjectIndex = (data) => {
+const ProjectIndex = (data,filter) => {
   let totalProjects = data.allStrapiProject.edges.length;
+  let recentOrSelected = !!filter;
+  filter = filter ? filter : () => true;
     return (
     <div id="projects-template">
       <div id="projects-title">
-        <h1>Selected Projects</h1>
+        <h1>{recentOrSelected ? "Recent" : "Selected"} Projects</h1>
       </div>
       <div className="projects">
-        {data.allStrapiProject.edges.map((edge, index) => <ProjectPreview node={edge.node} key={index}/>)}
+        {data.allStrapiProject.edges.filter(filter).map((edge, index) => <ProjectPreview node={edge.node} key={index}/>)}
       </div>
     </div>
     )
 }
 
-const Projects = () => {
+const Projects = ({filter}) => {
   const data = useStaticQuery(graphql`
     query projects {
       allStrapiProject(sort: {fields: Date, order: DESC}) {
@@ -60,7 +62,7 @@ const Projects = () => {
       }
     }
     `);
-    return ProjectIndex(data);
+    return ProjectIndex(data,filter ? filter : null);
   };
 
 export default Projects;

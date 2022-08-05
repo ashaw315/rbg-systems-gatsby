@@ -10,12 +10,11 @@ const ProjectPreview = ({node,scroll}) => {
   return (
     <div className="project-preview">
     <Link to={`/projects/${node.Slug}`}  className={"project" + (scroll ? " on" : "")}>
-      <p className="project-title">{node.Url} <span style={{color:"blue"}}>{node.Date.slice(0,4)}</span></p>
-
+      <div className="project-title"><div>{node.Url.replace("http://","").replace("https://","")}</div> <div style={{color:"blue"}}>{node.Date.slice(0,4)}</div></div>
       <div className="main-images">
         <Marquee
         className="marquee"
-        speed={75}
+        speed={150}
         loop={0}
         pauseOnHover={false}
         gradientWidth={0}

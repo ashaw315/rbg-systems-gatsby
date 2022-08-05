@@ -43,14 +43,14 @@ const CanvasPattern = ({ children,size=12,space=3, speed=1000 }) => {
       setCanvasPattern({
         backgroundImage: `url(${canvasRef.current.toDataURL()})`
       })
-      setInterval(()=> {
-        if(typeof window === "undefined")
-          return;
-        changeCanvas(ctxRef.current);
-        setCanvasPattern({
-          backgroundImage: `url(${canvasRef.current.toDataURL()})`
-        })
-      },speed)
+      // setInterval(()=> {
+      //   if(typeof window === "undefined")
+      //     return;
+      //   changeCanvas(ctxRef.current);
+      //   setCanvasPattern({
+      //     backgroundImage: `url(${canvasRef.current.toDataURL()})`
+      //   })
+      // },speed)
     }
   }, [])
   return <div id="canvas-pattern" style={canvasPattern}>

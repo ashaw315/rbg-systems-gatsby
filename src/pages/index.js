@@ -4,6 +4,8 @@ import { graphql, GatsbyImage, getImage } from "gatsby"
 import News from "../components/RecentNews";
 import Marquee from "react-fast-marquee";
 import Projects from "../components/Projects";
+import Services from "../components/Services";
+import Info from "../components/Info";
 
 const spanify = (text) => {
   let out = [];
@@ -17,21 +19,15 @@ const IndexPage = () => {
   const [pic,setPic] = useState(1)
   return (
     <main>
-    <Marquee
-    className="marquee"
-    speed={10}
-    loop={0}
-    pauseOnHover={false}
-    gradientWidth={0}
-    >
-      <h1 id="welcome">{spanify("RGB Systems/")}</h1>
-    </Marquee>
-    <img id="home-image" src="/IMG_3496.jpg"></img>
-      <Projects/>
+      <Services/>
+      <Projects filter={(item,i)=> i<6 }/>
       <News/>
+      <Info/>
     </main>
   )
 }
+
+//TODO tags with spaces
 
 // export const data = graphql`
 //   query headQuery {

@@ -10,6 +10,7 @@ const data = useStaticQuery(graphql`
           id
           Content {
             ... on STRAPI__COMPONENT_WRITING_IMAGE_BLOCK {
+              strapi_component
               id
               style
               rgb_media {
@@ -24,6 +25,7 @@ const data = useStaticQuery(graphql`
               }
             }
             ... on STRAPI__COMPONENT_WRITING_TEXT_BLOCK {
+              strapi_component
               id
               text {
                 data {
